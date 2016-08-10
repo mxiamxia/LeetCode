@@ -1,3 +1,5 @@
+package com.min.leetcode;
+
 
 public class Search2DMatrix {
 
