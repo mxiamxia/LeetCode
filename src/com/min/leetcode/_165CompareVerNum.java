@@ -13,15 +13,48 @@ public class _165CompareVerNum {
 		Here is an example of version numbers ordering:
 		
 		0.1 < 1.1 < 1.2 < 13.37
+		
+		从两个string最左边开始比较，
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		compareVersion("1.0.1", "1");
 
 	}
 	
-public int compareVersion(String version1, String version2) {
-        
+	public static int compareVersion(String version1, String version2) {
+        if (version1.equals(version2)) {
+            return 0;
+        }
+        String[] v1 = version1.split("\\.");
+        String[] v2 = version2.split("\\.");
+        int len1 = v1.length;
+        int len2 = v2.length;
+        int i = 0;
+        while(i < len1 && i < len2) {
+            if ( Integer.parseInt(v1[i]) > Integer.parseInt(v2[i]) ) {
+                return 1;
+            } else if ( Integer.parseInt(v1[i]) < Integer.parseInt(v2[i]) ) {
+                return -1;
+            } else {
+                i++;
+                continue;
+            }
+        } 
+        while (i < len1) {
+            if (Integer.parseInt(v1[i]) != 0) {
+                return 1;
+            }
+            i++;
+        }
+        while (i < len2) {
+            if (Integer.parseInt(v2[i]) != 0) {
+                return -1;
+            }
+            i++;
+        }
+        return 0;
     }
 
 }
