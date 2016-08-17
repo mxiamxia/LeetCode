@@ -75,40 +75,5 @@ public class _187RepeatDNASeq {
             return 0;
         }
     }
-    
-    
-    public List<String> findRepeatedDnaSequences(String s) {
-        List<String> res = new LinkedList<String>();
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for(int index = 10; index <= s.length(); index++){
-            String substr = s.substring(index - 10, index);
-            int code = encode(substr);
-            if(map.containsKey(code)){
-                if(map.get(code) == 1){
-                    res.add(substr);
-                }
-                map.put(code, 2);
-            } else {
-                map.put(code, 1);
-            }
-        }
-        return res;
-    }
-    
-    private int encode(String str){
-        int code = 0;
-        for(int i = 0; i < str.length(); i++){
-            char c = str.charAt(i);
-            // 每两位表示一个字符
-            code <<= 2;
-            switch(c){
-                case 'A': code += 0; break;
-                case 'C': code += 1; break;
-                case 'T': code += 2; break;
-                case 'G': code += 3; break;
-            }
-        }
-        return code;
-    }
 
 }
