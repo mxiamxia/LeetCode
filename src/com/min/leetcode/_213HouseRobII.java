@@ -1,7 +1,9 @@
 package com.min.leetcode;
 
+import java.util.PriorityQueue;
+
 public class _213HouseRobII {
-	public int rob(int[] nums) {
+	public static int rob(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }
@@ -22,6 +24,11 @@ public class _213HouseRobII {
     }
     public static void main(String[] args) {
     	rob(new int[]{1, 1, 1, 1});
+//    	PriorityQueue<Integer> q = new PriorityQueue<Integer>();
+//    	q.offer(2);
+//    	q.offer(9);
+//    	q.offer(4);
+//    	System.out.println(q.peek());
     }
 
 }
