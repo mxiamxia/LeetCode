@@ -1,5 +1,7 @@
 package com.min.leetcode;
 
+import com.min.leetcode._156BinaryTreeUpDown.TreeNode;
+
 public class _235LowestCommonAncestorBinarySearchTree {
 	
 	/*
