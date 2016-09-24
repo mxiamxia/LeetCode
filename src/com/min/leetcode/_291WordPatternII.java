@@ -1,5 +1,7 @@
 package com.min.leetcode;
 
+import java.util.HashMap;
+
 public class _291WordPatternII {
 	
 	/*
