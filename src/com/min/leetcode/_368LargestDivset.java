@@ -7,6 +7,21 @@ import java.util.List;
 public class _368LargestDivset {
 
 	/**
+	 * 
+	 * Given a set of distinct positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies: Si % Sj = 0 or Sj % Si = 0.
+
+			If there are multiple solutions, return any subset is fine.
+			
+			Example 1:
+			
+			nums: [1,2,3]
+			
+			Result: [1,2] (of course, [1,3] will also be ok)
+			Example 2:
+			
+			nums: [1,2,4,8]
+			
+			Result: [1,2,4,8]
 	 * 这道题基本考察的是DP的应用，首先对nums进行排序，对第i个元素，
 	 * 我们考虑这个元素是最大元素的subset，所以我们每次检查之前的i-1个元素，
 	 * 在第i个元素能整除的元素中，找到那个对应集合最大的，假设为j，因为第j个元素能整除第i个元素，

@@ -1,3 +1,5 @@
+package com.min.leetcode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +14,12 @@ public class Permute {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] input = {0, 1};
-		permute(input);
+		int[] input = new int[]{0, 1, 2};
+		Permute in = new Permute();
+		System.out.println(in.permute(input));
 	}
 	
-	public static List<List<Integer>> permute(int[] nums) {
+	public List<List<Integer>> permute(int[] nums) {
         ArrayList<List<Integer>> res = new ArrayList<List<Integer>>(); 
         if(nums == null || nums.length == 0) {
             return res;
@@ -25,7 +28,7 @@ public class Permute {
         return res;
     }
     
-    public static void recursivePermute(int[] nums, int start, ArrayList<Integer> cur, ArrayList<List<Integer>> res) {
+    public void recursivePermute(int[] nums, int start, ArrayList<Integer> cur, ArrayList<List<Integer>> res) {
         if(cur.size() == nums.length) {
             ArrayList<Integer> tmp = new ArrayList<Integer>(cur);
             res.add(tmp);
