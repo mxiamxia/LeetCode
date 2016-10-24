@@ -8,7 +8,12 @@ public class _206ReverseLinkedList {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		_206ReverseLinkedList in = new _206ReverseLinkedList();
+		ListNode head = new ListNode(1);
+		head.next = new ListNode(2);
+		head.next.next = new ListNode(3);
+		head.next.next.next = new ListNode(4);
+		in.reverseList2(head);
 	}
 
 	public ListNode reverseList(ListNode head) {
@@ -48,7 +53,7 @@ public class _206ReverseLinkedList {
 		return p1;
 	}
 
-	public class ListNode {
+	public static class ListNode {
 		public int val;
 		public ListNode next;
 

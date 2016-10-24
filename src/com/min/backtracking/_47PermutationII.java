@@ -2,7 +2,9 @@ package com.min.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 public class _47PermutationII {
 
@@ -31,6 +33,7 @@ public class _47PermutationII {
 	        }
 	        for (int i=0; i<nums.length; i++) {
 	            if (!flag[i]) {
+	            	// because it backtrack from the beginning. the same number do not need to backtrack again. it will generate the same permutaion.
 	                if (i>0 && nums[i] == nums[i-1] && !flag[i-1]) {  // if the same number and last one is not visited, skip the current one. it will skill whole round of this digit from the beginning
 	                    continue;
 	                }

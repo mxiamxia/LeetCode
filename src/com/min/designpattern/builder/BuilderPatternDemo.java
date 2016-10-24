@@ -4,10 +4,11 @@ public class BuilderPatternDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Meal m1 = new Meal();
-		m1.addMeal(new VegBurger());
-		m1.addMeal(new Coke());
+		MealBuilder builder = new MealBuilder();
+		Meal m1 = builder.buildMeatBurger();
+		Meal m2 = builder.buildVegBurger();
 		System.out.println(m1.getCost());
+		System.out.println(m2.getCost());
 	}
 
 }

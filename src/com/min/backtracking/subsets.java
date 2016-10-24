@@ -19,12 +19,10 @@ public class subsets {
             List<Integer> tmp = new ArrayList<Integer>(cur);
             res.add(tmp);
         }
-        if (cur.size() == nums.length) {
-        	cur.clear();
-        }
         for (int i=start; i<nums.length; i++) {
             cur.add(nums[i]);
             dfs(nums, res, cur, i+1);
+            cur.remove(cur.size()-1);
         }
     }
 
