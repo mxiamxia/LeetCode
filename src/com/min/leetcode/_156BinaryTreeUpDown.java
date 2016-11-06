@@ -1,5 +1,7 @@
 package com.min.leetcode;
 
+import java.math.BigInteger;
+
 import com.min.leetcode._366FindLeavesofBinaryTree.TreeNode;
 
 public class _156BinaryTreeUpDown {
@@ -58,6 +60,15 @@ public class _156BinaryTreeUpDown {
         }
         return pre;
     }
+	
+	public TreeNode UpsideDownBinaryTree2(TreeNode root) {
+		if (root == null) {
+			return null;
+		}
+		TreeNode left = UpsideDownBinaryTree2(root.left);
+		TreeNode right = UpsideDownBinaryTree2(root.right);
+		
+	}
 
 	public static class TreeNode {
 		int val;
@@ -68,6 +79,8 @@ public class _156BinaryTreeUpDown {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		BigInteger bInt = new BigInteger("200");
+		bInt.add(new BigInteger("100"));
+		
 	}
 }

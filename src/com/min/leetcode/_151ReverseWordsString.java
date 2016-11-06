@@ -10,7 +10,8 @@ public class _151ReverseWordsString {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		_151ReverseWordsString in = new _151ReverseWordsString();
+		in.reverseWords1(" 1");
 	}
 	
 	public String reverseWords(String s) {
@@ -27,6 +28,24 @@ public class _151ReverseWordsString {
         }
         if(sb.length() == 0) return "";
         return sb.toString().substring(0, sb.length()-1);
+    }
+	
+	
+	public String reverseWords1(String s) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        String[] array = s.split("\\s+");
+        int j = array.length - 1;
+        if (array.length == 0) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i=j; i>=0; i--) {
+            sb.append(array[i]).append(" ");
+        }
+        sb.deleteCharAt(sb.length()-1);
+        return sb.toString();
     }
 
 }

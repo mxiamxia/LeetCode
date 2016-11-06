@@ -22,13 +22,38 @@ public class _163MissingRange {
 
 	}
 	
+	
+	public List<String> findMissingRanges1(int[] vals, int start, int end) {
+		List<String> res = new ArrayList<String>();
+		int pre = start-1;
+		int cur = 0;
+		for (int i=0; i<=vals.length; i++) {
+			if (i == vals.length) {
+				cur = end+1;
+			} else {
+				cur = vals[i];
+			}
+			if ((cur - pre) > 1) {
+				String range = getRange(pre+1, end-1);
+				res.add(range);
+			}
+			pre = cur;
+		}
+		return res;
+	}
+	
 	public List<String> findMissingRanges(int[] vals, int start, int end) {
 		List<String> res = new ArrayList<String>();
 		int pre = start - 1;
+		int curr = 0;
 		for(int i=0; i<=vals.length; i++) {
-			int curr = (i==vals.length) ? end+1 : vals[i];
+			if (i == vals.length) {
+				curr = end + 1;
+			} else {
+				curr = vals[i];
+			}
 			if ((curr-pre) >= 2) {
-				res.add(getRange(pre+1, end-1));
+				res.add(getRange(pre+1, curr-1));
 			}
 			pre = curr;
 		}
