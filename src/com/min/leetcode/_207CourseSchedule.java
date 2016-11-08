@@ -28,7 +28,7 @@ public class _207CourseSchedule {
 	
 	public static void main(String[] args) {
 		try {
-			System.out.print(canFinish(3, new int[][]{{1,0},{2,1}}));
+			System.out.print(canFinish1(3, new int[][]{{1,0},{2,1}}));
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -69,5 +69,35 @@ public class _207CourseSchedule {
             }
         }
         return numNoPre == numCourses;
+    }
+	
+	public static boolean canFinish1(int numCourses, int[][] prerequisites) {
+        if (prerequisites == null) {
+            return false;
+        }
+        int[] preCourse = new int[numCourses];
+        for (int i=0; i<prerequisites.length; i++) {
+            preCourse[prerequisites[i][0]]++;
+        }
+        Queue<Integer> queue = new LinkedList<Integer>();
+        for (int i=0; i<preCourse.length; i++) {
+            if (preCourse[i] == 0) {
+                queue.add(i);
+            }
+        }
+        int numResolved = queue.size();
+        while (queue.size() > 0) {
+            int top = queue.poll();
+            for (int i=0; i<prerequisites.length; i++) {
+                if (prerequisites[i][1] == top) {
+                    preCourse[prerequisites[i][0]]--;
+                    if (preCourse[prerequisites[i][0]] == 0) {
+                        queue.add(preCourse[prerequisites[i][0]]);
+                        numResolved++;
+                    }
+                }
+            }
+        }
+        return numResolved == numCourses;
     }
 }
