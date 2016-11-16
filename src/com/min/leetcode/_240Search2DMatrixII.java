@@ -17,7 +17,8 @@ public class _240Search2DMatrixII {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		_240Search2DMatrixII in = new _240Search2DMatrixII();
+		in.searchMatrix2(new int[][]{{-1, 3}}, 1);
 	}
 	
 	
@@ -41,5 +42,35 @@ public class _240Search2DMatrixII {
         }
         return false;
     }
+	
+	
+	 public boolean searchMatrix2(int[][] matrix, int target) {
+	        if (matrix.length == 0 || matrix[0].length == 0) {
+	            return false;
+	        }
+	        int row = matrix.length;
+	        int col = matrix[0].length;
+	        int i = 0;
+	        int j = col - 1;
+	        if (target < matrix[0][0] || target > matrix[row-1][col-1]) {
+	            return false;
+	        }
+	        while (i < row) {
+	            while (matrix[i][j] > target) {
+	                j--;
+	            }
+	            while (matrix[i][j] < target) {
+	                i++;
+	            }
+	            if (i >= row || j < 0) {
+	                return false;
+	            }
+	            if (matrix[i][j] == target) {
+	                return true;
+	            }
+	        }
+	        
+	        return false;
+	    }
 
 }

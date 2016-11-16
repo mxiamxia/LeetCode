@@ -92,7 +92,7 @@ public class _207CourseSchedule {
                 if (prerequisites[i][1] == top) {
                     preCourse[prerequisites[i][0]]--;
                     if (preCourse[prerequisites[i][0]] == 0) {
-                        queue.add(preCourse[prerequisites[i][0]]);
+                        queue.add(prerequisites[i][0]);
                         numResolved++;
                     }
                 }

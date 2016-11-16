@@ -11,6 +11,7 @@ public class _248StrobogrammaticNumberIII {
 		// TODO Auto-generated method stub
 		_248StrobogrammaticNumberIII in = new _248StrobogrammaticNumberIII();
 		System.out.println(in.strobogrammaticInRange("160", "162"));
+		System.out.println(in.strobogrammaticInRange2("0", "9"));
 
 	}
 	private int count = 0;
@@ -73,5 +74,36 @@ public class _248StrobogrammaticNumberIII {
         map.put('6', '9');
         map.put('9', '6');
     }
+    
+    
+    
+    
+    public int strobogrammaticInRange2(String low, String high) {
+        int count = 0;
+        for (int i=Integer.parseInt(low); i<=Integer.parseInt(high); i++) {
+            if (isStrobogrammatic(String.valueOf(i))) {
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    public static boolean isStrobogrammatic(String num) {
+		HashMap<Character, Character> map = new HashMap<Character, Character>();
+        map.put('1','1');
+        map.put('0','0');
+        map.put('6','9');
+        map.put('9','6');
+        map.put('8','8');
+		int left = 0, right = num.length()-1;
+		while (left <= right) {
+			if (!map.containsKey(num.charAt(left)) || map.get(num.charAt(left)) != map.get(num.charAt(right))) {
+				return false;
+			}
+			left++;
+			right--;
+		}
+		return true;
+	}
 
 }
