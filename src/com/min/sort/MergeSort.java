@@ -5,6 +5,10 @@ public class MergeSort {
 	  private int[] helper;
 
 	  private int number;
+	  public static void main(String[] args) {
+		  MergeSort in = new MergeSort();
+		  in.sort(new int[]{2, 3, 8, 5, 1, 10});
+	  }
 
 	  public void sort(int[] values) {
 	    this.numbers = values;
