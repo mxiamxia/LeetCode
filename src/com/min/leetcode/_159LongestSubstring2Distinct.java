@@ -7,7 +7,8 @@ public class _159LongestSubstring2Distinct {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		_159LongestSubstring2Distinct in = new _159LongestSubstring2Distinct();
+		in.lengthOfLongestSubstringTwoDistinct("eceba");
 	}
 	
 	public static int lengthOfLongestSubstringTwoDistinct(String s) {
